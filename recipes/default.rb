@@ -102,11 +102,10 @@ template node['php-fpm']['conf_file'] do
   mode 00644
   owner "root"
   group "root"
-  notifies :restart, "service[php-fpm]"
 end
 
 service "php-fpm" do
   service_name php_fpm_service_name
   supports :start => true, :stop => true, :restart => true, :reload => true
-  action [ :enable, :start ]
+  action :nothing
 end
